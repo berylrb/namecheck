@@ -4,9 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Name Data</title>
 </head>
 <body>
-  
+  <div class="title-div">
+    <h1>Names</h1>
+  </div>
+  <div class="data-div">
+    <ul>
+      <% names.forEach(name => { %>
+        <li>
+          Name: <%= name.name %> 
+          - 
+          Age Guess: <%= name.age %>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
 </body>
 </html>

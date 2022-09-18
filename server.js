@@ -1,6 +1,7 @@
 import "dotenv/config.js"
 import createError from 'http-errors'
 import express from 'express'
+import { names } from "./data/name-data.js"
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
@@ -37,7 +38,10 @@ app.get('/', function(req, res) {
   res.send('<h1>hello, friend</h1>')
 })
 app.get('/home', function(req, res) {
-  res.send('<h1>Home Page</h1>')
+  res.render('home')
+})
+app.get('/names', function(req, res) {
+  res.render('names/index', {names: names})
 })
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
