@@ -11,7 +11,7 @@ import('./config/database.js')
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
-import { router as usersRouter } from './routes/users.js'
+import { router as namesRouter } from './routes/names.js'
 
 // set up app
 const app = express()
@@ -33,9 +33,10 @@ app.use(
   )
 )
 
-// mounted routers
+
+
 app.get('/', function(req, res) {
-  res.send('<h1>hello, friend</h1>')
+  res.redirect('/home')
 })
 app.get('/home', function(req, res) {
   res.render('home')
@@ -43,8 +44,12 @@ app.get('/home', function(req, res) {
 app.get('/names', function(req, res) {
   res.render('names/index', {names: names})
 })
+
+
+
+// mounted routers
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+app.use('/names', namesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,11 +1,10 @@
 import { Router } from 'express'
+import * as namesCtrl from '../controllers/names.js'
 
 const router = Router()
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+router.get('/', namesCtrl.index)
 
 export {
   router
